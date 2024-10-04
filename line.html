@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Basic HTML Template</title>
+</head>
+<body>
+    <!-- Load d3.js -->
+    <script src="https://d3js.org/d3.v4.js"></script>
+
+    <!-- Create a div where the graph will take place -->
+    <div id="my_dataviz"></div>
+
+
+    <script>
+
+    // set the dimensions and margins of the graph
+    var margin = {top: 30, right: 0, bottom: 30, left: 50},
+        width = 210 - margin.left - margin.right,
+        height = 260 - margin.top - margin.bottom;
+
+    //Read the data
+    d3.csv("https://raw.githubusercontent.com/vanhugee/movie/main/longgenre.csv", function(data) {
+
+      // group the data: I want to draw one line per group
+      var sumstat = d3.nest() // nest function allows to group the calculation per level of a factor
+        .key(function(d) { return d.Attribute;})
+        .entries(data);
+
+      // What is the list of groups?
+      allKeys = sumstat.map(function(d){return d.key})
+
+      // Add an svg element for each group. The will be one beside each other and will go on the next row when no more room available
+      var svg = d3.select("#my_dataviz")
+        .selectAll("uniqueChart")
+        .data(sumstat)
+        .enter()
+        .append("svg")
+          .attr("width", width + margin.left + margin.right)
+          .attr("height", height + margin.top + margin.bottom)
+        .append("g")
+          .attr("transform",
+                "translate(" + margin.left + "," + margin.top + ")");
+
+      // Add X axis --> it is a date format
+      var x = d3.scaleLinear()
+        .domain(d3.extent(data, function(d) { return d.Year; }))
+        .range([ 0, width ]);
+      svg
+        .append("g")
+        .attr("transform", "translate(0," + height + ")")
+        .call(d3.axisBottom(x).ticks(3));
+
+      //Add Y axis
+      var y = d3.scaleLinear()
+        .domain([0, d3.max(data, function(d) { return +d.Value; })])
+        .range([ height, 0 ]);
+      svg.append("g")
+        .call(d3.axisLeft(y).ticks(5));
+
+      // color palette
+      var color = d3.scaleOrdinal()
+    .domain(allKeys)
+    .range([
+    '#e41a1c', // Bright Red
+        '#377eb8', // Bright Blue
+        '#4daf4a', // Bright Green
+        '#ff7f00', // Bright Orange
+        '#984ea3', // Bright Purple
+        '#ffb733', // A softer Yellow-Orange
+        '#a65628', // Brown
+        '#f781bf', // Pink
+        '#999999', // Gray
+        '#ff69b4', // Deep Pink
+        '#8a2be2', // Blue Violet
+        '#f0e68c', // Khaki
+        '#ff4500', // Orange Red
+        '#20b2aa', // Light Sea Green
+        '#ff1493', // Deep Pink
+        '#dc143c', // Crimson
+        '#00bfff', // Deep Sky Blue
+        '#ff8c00', // Dark Orange
+        '#32cd32', // Lime Green
+        '#7b68ee'  // Medium Slate Blue
+    ]);
+      // Draw the line
+      svg
+        .append("path")
+          .attr("fill", "none")
+          .attr("stroke", function(d){ return color(d.key) })
+          .attr("stroke-width", 1.9)
+          .attr("d", function(d){
+            return d3.line()
+              .x(function(d) { return x(d.Year); })
+              .y(function(d) { return y(+d.Value); })
+              (d.values)
+          })
+
+      // Add titles
+      svg
+        .append("text")
+        .attr("text-anchor", "start")
+        .attr("y", -5)
+        .attr("x", 0)
+        .text(function(d){ return(d.key)})
+        .style("fill", function(d){ return color(d.key) })
+
+    })
+    </script>
+
+</body>
+</html>
