@@ -13,39 +13,20 @@
         <option value="Action">Action</option>
         <option value="Comedy">Comedy</option>
         <option value="Drama">Drama</option>
-        <option value="Adventure">Adventure</option>
         <option value="Horror">Horror</option>
-        <option value="Thriller">Thriller</option>
         <option value="Documentary">Documentary</option>
-        <option value="Science Fiction">Science Fiction</option>
         <option value="Romance">Romance</option>
-        <option value="Crime">Crime</option>
         <option value="Family">Family</option>
         <option value="Fantasy">Fantasy</option>
-        <option value="Animation">Animation</option>
-        <option value="Mystery">Mystery</option>
-        <option value="Music">Music</option>
-        <option value="History">History</option>
-        <option value="War">War</option>
-        <option value="Western">Western</option>
-        <option value="TV Movie">TV Movie</option>
-
-
     </select>
-
     <script src="https://d3js.org/d3.v4.js"></script>
-
     <!-- Create a div where the graph will take place -->
     <div id="my_dataviz"></div>
-
-
     <script>
-
     // set the dimensions and margins of the graph
     var margin = {top: 10, right: 30, bottom: 30, left: 100},
         width = 700 - margin.left - margin.right,
         height = 620 - margin.top - margin.bottom;
-
     // append the svg object to the body of the page
     var svg = d3.select("#my_dataviz")
       .append("svg")
@@ -54,10 +35,8 @@
       .append("g")
         .attr("transform",
               "translate(" + margin.left + "," + margin.top + ")");
-
     //Read the data
-    d3.csv("https://raw.githubusercontent.com/vanhugee/movie/main/movies.csv", function(data) {
-
+    d3.csv("https://raw.githubusercontent.com/vanhugee/movie/main/movies_final.csv", function(data) {
       // Add X axis
       var x = d3.scaleLinear()
         .domain([0, 460000000])
@@ -65,7 +44,6 @@
       svg.append("g")
         .attr("transform", "translate(0," + height + ")")
         .call(d3.axisBottom(x));
-
       // Add Y axis
       var y = d3.scaleLinear()
         .domain([0, 2923706026])
@@ -80,7 +58,6 @@
       .attr("x", width)
       .attr("y", height - 6)
       .text("Budget");
-
   // Add y-axis label
   svg.append("text")
       .attr("class", "y label")
@@ -89,20 +66,15 @@
       .attr("dy", ".75em")
       .attr("transform", "rotate(-90)")
       .text("Revenue");
-
-
       // Add dots
       // Add dots
       function updateGraph(genre) {
         // Delete all current dots
         svg.selectAll("circle").remove()
-
         var filteredData = genre !== 'All' ? data.filter(function(d) { return d.genre === genre; }) : data;
-
         var circles = svg.append('g')
             .selectAll("circle")
             .data(filteredData);
-
         // Enter new circles with fly-in animation
         circles.enter()
             .append("circle")
@@ -113,7 +85,6 @@
             .transition()  // Add transition
             .duration(1000)  // Duration of 1 second
             .attr("cy", function (d) { return y(d.revenue); });  // End at the correct position
-
         // Update existing circles
         circles.transition()
             .duration(3000)
@@ -121,20 +92,16 @@
             .attr("cy", function (d) { return y(d.revenue); } )
             .attr("r", 1.5)
             .style("fill", "#4a90e2");
-
         // Remove old circles
         circles.exit().remove();
                 // Remove previous line of best fit
           svg.selectAll(".line-of-best-fit").remove();
-
           // Calculate linear regression
           var lr = linearRegression(filteredData);
-
           // Define the line of best fit
           var line = d3.line()
               .x(d => x(d.budget))
               .y(d => y(lr.slope * d.budget + lr.intercept));
-
           // Add the line of best fit
           svg.append("path")
               .datum(filteredData)
@@ -145,7 +112,6 @@
               .style("stroke-width", 2.5)
               .style("fill", "none");
       }
-
       updateGraph('All')
       window.updateGraph = updateGraph
             // Function to calculate linear regression
@@ -155,17 +121,11 @@
           var sumY = d3.sum(data, d => d.revenue);
           var sumXY = d3.sum(data, d => d.budget * d.revenue);
           var sumX2 = d3.sum(data, d => d.budget * d.budget);
-
           var slope = (n * sumXY - sumX * sumY) / (n * sumX2 - sumX * sumX);
           var intercept = (sumY - slope * sumX) / n;
-
           return { slope: slope, intercept: intercept };
       }
-
-
-
     })
-
     </script>
 </body>
 </html>
