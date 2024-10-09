@@ -14,14 +14,15 @@
     <script src="https://d3js.org/d3-scale-chromatic.v1.min.js"></script>
 
     <!-- Create a div where the graph will take place -->
+     <div style="text-align: center;font-weight: bold; font-size: 24px;">Movie Budget, Popularity, and Genre Trends (1920s–2020s)</div>
     <div id="my_dataviz"></div>
 
     <!-- A bit of CSS: change stroke color of circle on hover (white -> black) -->
     <style>
     .bubbles {
-      stroke-width: 1px;
-      stroke: black;
-      opacity: .8
+      /* stroke-width: 1px; */
+      /* stroke: black; */
+      opacity: .6
     }
     .bubbles:hover {
       stroke: black;
@@ -34,7 +35,7 @@
     // set the dimensions and margins of the graph
     var margin = {top: 40, right: 150, bottom: 60, left: 100},
         width = 1180 - margin.left - margin.right,
-        height = 720 - margin.top - margin.bottom;
+        height = 680 - margin.top - margin.bottom;
 
     // append the svg object to the body of the page
     var svg = d3.select("#my_dataviz")
@@ -187,7 +188,7 @@
           .enter()
           .append("circle")
             .attr("cx", xCircle + offsetX)
-            .attr("cy", function(d){ return height - 100 - z(d) + offsetY - 120 } )
+            .attr("cy", function(d){ return height - 60 - z(d) + offsetY - 120 } )
             .attr("r", function(d){ return z(d) })
             .style("fill", "none")
             .attr("stroke", "black")
@@ -200,8 +201,8 @@
           .append("line")
             .attr('x1', function(d){ return xCircle + z(d) + offsetX } )
             .attr('x2', xLabel + offsetX)
-            .attr('y1', function(d){ return height - 100 - z(d) + offsetY -120} )
-            .attr('y2', function(d){ return height - 100 - z(d) + offsetY -120} )
+            .attr('y1', function(d){ return height - 60 - z(d) + offsetY -120} )
+            .attr('y2', function(d){ return height - 60 - z(d) + offsetY -120} )
             .attr('stroke', 'black')
             .style('stroke-dasharray', ('2,2'))
 
@@ -212,7 +213,7 @@
           .enter()
           .append("text")
             .attr('x', xLabel + offsetX)
-            .attr('y', function(d){ return height - 100 - z(d) + offsetY - 120 } )
+            .attr('y', function(d){ return height - 60 - z(d) + offsetY - 120 } )
             .text( function(d){ return d/1000000 } )
             .style("font-size", 10)
             .attr('alignment-baseline', 'middle')
@@ -220,7 +221,7 @@
         // Legend title
         svg.append("text")
           .attr('x', xCircle + 620)
-          .attr("y", height - 100 +30 + offsetY - 120)
+          .attr("y", height -60+30 + offsetY - 120)
           .text("Popularity")
           .attr("text-anchor", "middle")
 

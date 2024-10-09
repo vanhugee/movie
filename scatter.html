@@ -7,6 +7,7 @@
     <title>Budget vs Revenue</title>
 </head>
 <body>
+  <div style="text-align: center;font-weight: bold; font-size: 24px;">Budget vs. Revenue of Movies by Genre</div>
     <label for="dropdown">Select a Genre:</label> <!-- Accessible label for the dropdown -->
     <select id="dropdown" aria-label="Select a genre" onchange="updateGraph(this.value)"> <!-- Added aria-label for accessibility -->
         <option value="All">All</option>
@@ -57,7 +58,7 @@
       .attr("text-anchor", "end")
       .attr("x", width)
       .attr("y", height - 6)
-      .text("Budget");
+      .text("Budget(in USD)");
   // Add y-axis label
   svg.append("text")
       .attr("class", "y label")
@@ -65,7 +66,7 @@
       .attr("y", 6)
       .attr("dy", ".75em")
       .attr("transform", "rotate(-90)")
-      .text("Revenue");
+      .text("Revenue(in USD)");
       // Add dots
       // Add dots
       function updateGraph(genre) {
