@@ -1,0 +1,266 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <!-- Robotto Font Import -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+
+    <title>Global Warming and Economic Impacts</title>
+
+
+    <style>
+        /* Define the width of the carousel container */
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            height: 3650px;
+        }
+
+        .navbar {
+            width: 100%;
+            position: fixed;
+            z-index: 100;
+        }
+
+        .card-img-top {
+              width: 100%;
+              height: 35vw;
+              object-fit: cover;
+          }
+        
+        .my-animation {
+              animation-name: fadeIn;
+              animation-duration: 2s;
+              animation-timing-function: ease-in-out;
+              animation-delay: 1s;
+              animation-fill-mode: both;
+        }
+
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+
+    </style>
+  
+  </head>
+  <body id="top-page-section">
+    
+    <!-- Navigation bar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light pt-3 pb-4">
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse w-100" id="navbarNavDropdown">
+          <ul class="navbar-nav">
+              <li class="nav-item active">
+                  <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+              </li>
+              <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  Data Visualization
+                  </a>
+                  <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                  <a class="dropdown-item" href="scatter.html">Visualization 1</a>
+                  <a class="dropdown-item"  href="bubble.html">Visualization 2</a>
+                  <a class="dropdown-item"  href="line.html">Visualization 3</a>
+                  </div>
+              </li>
+          </ul>
+      </div>
+      
+      <div class="navbar-collapse collapse w-100 order-3 dual-collapse2">
+        <ul class="navbar-nav ml-auto d-flex flex-column">
+          <span class="navbar-text">Allice, Ally, Huy, Taylor</span>
+          <span class="navbar-text mx-auto">CSC-363</span>
+        </ul>
+      </div>
+    </nav>
+  
+
+    <section data-bs-spy="scroll" data-bs-target="#simple-list-example" data-bs-offset="0" data-bs-smooth-scroll="true" class="firstSection" tabindex="0">
+      <div class = "container-md" style="padding-top: 180px;">
+        <div class = "row">
+          <div class = "col-md-6", style="padding-left: 45px;">
+            <h1 class="display-1 my-animation" style="font-weight: 700;">
+                Movie Data Visualization
+            </h1>
+          </div>
+        </div>
+        <div class = "row">
+          <div class = "col-md-12">
+            <div id="carouselSlide" class="carousel slide carousel-fade text-center" data-ride="carousel" data-interval="3000" data-pause="false">
+              <ol class="carousel-indicators">
+                <li data-target="#carouselIndicators" data-slide-to="0" class="active"></li>
+                <li data-target="#carouselIndicators" data-slide-to="1"></li>
+                <li data-target="#carouselIndicators" data-slide-to="2"></li>
+                <li data-target="#carouselIndicators" data-slide-to="3"></li>
+                <li data-target="#carouselIndicators" data-slide-to="4"></li>
+
+              
+        
+              </ol>
+              <div class="carousel-inner ratio ratio-16x9 text-center" style="margin-top: 50px; ">
+                <div class="carousel-item active">
+                  <img class="mx-auto d-block" src="image_1.jpg" alt="First slide" width="90%" height="700px">
+                </div>
+                <div class="carousel-item">
+                  <img class="mx-auto d-block" src="image_2.jpg" alt="Second slide" width="90%" height="700px">
+                </div>
+                <div class="carousel-item">
+                  <img class="mx-auto d-block" src="image_3.jpg" alt="Third slide" width="90%" height="700px">
+                </div>
+                <div class="carousel-item">
+                  <img class="mx-auto d-block" src="image_4.jpg" alt="Fourth slide" width="90%" height="700px">
+                </div>
+                <div class="carousel-item">
+                  <img class="mx-auto d-block" src="image_5.jpg" alt="Fifth slide" width="90%" height="700px">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>    
+      </div>
+    </section>
+
+    
+    <hr style="margin: 100px;  border-width: 1px; background-color:black">
+
+    <section class="secondSection">
+      <div class="container-md">
+        <div class = "row gy-5" style="padding-left: 50px; padding-right: 50px;">
+          <div class = "col-md-6", style="padding-left: 45px;">
+            <h1 class="display-5" style="font-weight: 500;">
+                Why are we interested in exploring Movie Performance
+            </h1>
+          </div>
+          <div class = "col-md-6", style="padding-right: 45px; padding-bottom: 40px;">
+            <p class="text-justify">
+                Movie performance analysis dives into the metrics that define a film’s success, 
+                from box office revenue to audience popularity. By visualizing this data, 
+                we can uncover trends across genres, budgets, and release years, 
+                gaining a deeper understanding of what makes certain movies resonate with audiences. 
+                This approach helps highlight how factors like production costs, geographic origins, and t
+                hematic content influence a film's financial and critical reception.
+            </p>
+          </div>
+        </div>
+        <div class = "row" style="padding-left: 50px; padding-right: 50px;">
+          <div class = "col-md-5", style="padding-left: 45px;">
+            <h1 class="display-5" style="font-weight: 500;">
+                How will we measure movie performance?
+            </h1>
+          </div>
+          <div class="col"></div>
+          <div class = "col-md-6", style="padding-right: 45px;">
+            <p class="text-justify">
+                To measure movie performance, we focus on a few key variables: revenue 
+                (global box office earnings), budget (the cost of production), and popularity 
+                (public reception). Additionally, we will categorize movies by genre and release year, t
+                o explore trends within specific categories and over time. We will also examine production 
+                countries to gain insights into regional contributions to the film industry. By leveraging 
+                these metrics, we aim to provide both neutral and persuasive visualizations that reveal insights 
+                into the factors driving success in cinema.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <hr style="margin: 100px;  border-width: 1px; background-color:black; margin-bottom: 80px;">
+
+    
+    <section class="thirdSection">
+      <div class="container-md">
+
+        <div class="row" style="margin-bottom: 70px;">
+          <div class="col-md-3"></div>
+          <div class="col-md-6">
+            <h1 class="display-4 my-animation" style="font-weight: 700;">
+                The Story Through Our Visualization
+            </h1>
+          </div>
+          <div class="col-md-3"></div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+              <div class="card-deck" style="padding-left: 40px; padding-right: 40px;">
+                <div class="card" style="width: 18rem;">
+                  <img src="box_1.jpg" class="card-img-top" alt="...">
+                  <div class="card-body">
+                    <h5 class="card-title">Movies' popularity since the 1920s</h5>
+                    <p class="card-text">We analyzed the popularity of films in relation to their production budgets, revealing that blockbuster movies with higher budgets tend to garner greater global attention. 
+                      </p>
+                    <a href="bubble.html" class="btn btn-outline-dark">Take a closer look</a>
+                  </div>
+                </div>
+        
+                <div class="card" style="width: 18rem;">
+                  <img src="box_2.jpg" class="card-img-top" alt="..." >
+                  <div class="card-body">
+                    <h5 class="card-title">Budget vs. Box Office Bonanza</h5>
+                    <p class="card-text">We examined how movie budgets influence their global revenue, revealing that larger investments tend to yield higher returns. However, some low-budget films defy expectations, turning modest investments into blockbuster successes.</p>
+                    <a href="scatter.html" class="btn btn-outline-dark">Take a closer look</a>
+                  </div>
+                </div>        
+              </div>
+            </div>
+        </div>
+        <div class="row" style="margin-top: 60px;">
+            <div class="col-md-12">
+              <div class="card-deck" style="padding-left: 40px; padding-right: 40px;">
+                <div class="card" style="width: 18rem;">
+                  <img src="box_3.jpg" class="card-img-top" alt="...">
+                  <div class="card-body">
+                    <h5 class="card-title">Number of films produced by genre</h5>
+                    <p class="card-text">We analyzed the number of films produced across the top 8 most popular genres, revealing that action and drama dominate the film industry. Limitations such as genre classification and regional preferences should be considered.
+                      </p>
+                    <a href="line.html" class="btn btn-outline-dark">Take a closer look</a>
+                  </div>
+                </div>
+        
+                <div class="card" style="width: 18rem;">
+                  <img src="box_2.jpg" class="card-img-top" alt="..." >
+                  <div class="card-body">
+                    <h5 class="card-title">Placeholder</h5>
+                    <p class="card-text">Placeholder.</p>
+                    <a href="#" class="btn btn-outline-dark">Take a closer look</a>
+                  </div>
+                </div>        
+              </div>
+            </div>
+        </div>
+      </div>
+
+
+      
+    </section>
+
+    <hr style="margin: 100px;  border-width: 1px; background-color:black; margin-bottom: 30px;">
+
+    <div class="container-md">
+      <div id="simple-list-example" class="d-flex flex-column gap-2 simple-list-example-scrollspy text-center">
+        <a class="p-1 rounded" href="#top-page-section">Navigate Back To The Top</a>
+      </div>
+    </div>
+  
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  </body>
+</html>

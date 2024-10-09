@@ -22,7 +22,7 @@
         height = 260 - margin.top - margin.bottom;
 
     //Read the data
-    d3.csv("https://raw.githubusercontent.com/vanhugee/movie/main/longgenre.csv", function(data) {
+    d3.csv("https://raw.githubusercontent.com/vanhugee/movie/main/longgenre_final.csv", function(data) {
 
       // group the data: I want to draw one line per group
       var sumstat = d3.nest() // nest function allows to group the calculation per level of a factor
@@ -64,26 +64,14 @@
       var color = d3.scaleOrdinal()
     .domain(allKeys)
     .range([
-    '#e41a1c', // Bright Red
+        '#e41a1c', // Bright Red
         '#377eb8', // Bright Blue
         '#4daf4a', // Bright Green
         '#ff7f00', // Bright Orange
         '#984ea3', // Bright Purple
-        '#ffb733', // A softer Yellow-Orange
+        '#ffb733', // Yellow-Orange
         '#a65628', // Brown
-        '#f781bf', // Pink
-        '#999999', // Gray
-        '#ff69b4', // Deep Pink
-        '#8a2be2', // Blue Violet
-        '#f0e68c', // Khaki
-        '#ff4500', // Orange Red
-        '#20b2aa', // Light Sea Green
-        '#ff1493', // Deep Pink
-        '#dc143c', // Crimson
-        '#00bfff', // Deep Sky Blue
-        '#ff8c00', // Dark Orange
-        '#32cd32', // Lime Green
-        '#7b68ee'  // Medium Slate Blue
+        '#f781bf'  // Pink
     ]);
       // Draw the line
       svg
